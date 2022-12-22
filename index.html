@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>GBR Official</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="./CSSs/basicstyle.css">
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js">
+    </script>
+    <style>
+        div.second-title{
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            left: 0;
+            right: 0;
+            position: absolute;
+        }
+        p#second-title-phrase{
+            text-align: center;
+            color: white;
+            transition: font-size 300ms linear;
+        }
+        p#second-title-phrase:hover{
+            font-size: 17px;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!--upper ad-->
+    <div id="upper-ad">
+        <div style="height: 480px">
+            <img src="./PNGs/logo.png" height="380px" width="380px"/>
+            <p style="color: white;font-size: 30px;text-align: center">We Served Good Service!</p>
+        </div>
+        <div style="height: 20px;width:auto;border: 1px solid cornflowerblue">
+            <p style="color: white;font-size: 12px;text-align: center" id="ad-close"> [X Close]</p>
+        </div>
+    </div>
+    <!--title bar-->
+    <div id="title-bar" style="display: flex;list-style-type: none;justify-content: space-between;alignment: center;flex-flow: row nowrap;flex-direction: row" class="adv-wrapper">
+        <img src="PNGs/logo.png" onclick="logo_refresh()" style="cursor: pointer;order: 0;width: 45px; height: 45px;padding-left: 10px" />
+        <p class="adv-wrapper-text" style="order: 1;cursor: help!important;margin-left: 25%">LWR</p>
+        <p class="adv-wrapper-text" id="service" style="order: 2" onclick="service_tip()">Service</p>
+        <p class="adv-wrapper-text" id="production" style="order: 3" onclick="production_tip()">production</p>
+        <p class="adv-wrapper-text" id="partners" style="order: 4">partners</p>
+        <p class="adv-wrapper-text" id="fd" style="order: 5;margin-right: 25%" onclick="fd_tip()">For Developer</p>
+        <p class="adv-wrapper-text" style="padding-right: 18px;align-self: flex-end;font-size: 7px;list-style-type: none;order: 6" id="log">&lt;登录?注册!&gt;</p>
+    </div>
+    <div id="tip-service-item" class="tip-item">
+        <p style="font-size: larger" class="adv-wrapper-text">No Service</p>
+    </div>
+    <div id="tip-production-item" class="tip-item">
+
+    </div>
+    <div id="tip-fd-item" class="tip-item">
+        <p class="adv-wrapper-text" style="text-align: center;font-size: 50px;color: white!important;">Dear developers!</p>
+        <div style="float: left;padding-left: 0;padding-bottom: 0;bottom: 0">
+            <img src="https://developer.android.google.cn/static/images/cluster-illustrations/samples.svg" width="290px" /><br/>
+            <img src="https://developer.android.google.cn/static/images/cluster-illustrations/developer-guidance.svg" width="290px"/>
+        </div>
+        <div style="position: absolute;padding-left: 300px;">
+            <p style="font-weight: lighter;text-align: left;font-size: 30px;color: #f5f5f7">Many supplies are provided here.<br/>Start ur coding life from here!</p>
+            <div style="width: 860px;height: 80%;display: flex;flex-direction: row;justify-content: space-between">
+                <div style="width:250px;height: 350px;order: 0;border-radius: 10px;background-color: rgb(7,48,66)">
+                    <img src="https://developer.android.google.cn/static/images/spot-icons/tools-update.svg" width="100px" height="100px">
+                    <p class="adv-wrapper-text" style="font-size: large">Participate to IT EDU Plan</p>
+                    <p style="font-size: 20px">Great Community with people who're professional.</p>
+                </div>
+                <div style="order: 1;width:250px;height: 350px;border-radius: 10px;background-color: rgb(7,48,66)">
+                    <img src="https://developer.android.google.cn/static/images/cluster-illustrations/quality-guidelines.svg" width="100px" height="100px">
+                    <p class="adv-wrapper-text" style="font-size: large">Q&A</p>
+                    <p style="font-size: 20px">questions&answers</p>
+                </div>
+                <div style="order: 2;width:250px;height: 350px;border-radius: 10px;background-color: rgb(7,48,66)">
+                    <img src="https://developer.android.google.cn/static/images/picto-icons/lightbulb.svg" width="100px" height="100px">
+                    <p class="adv-wrapper-text" style="font-size: large">Some ideas</p>
+                    <p style="font-size: 20px">No ideas? Come HERE!</p>
+                </div>
+            </div>
+            <div class="tip-close" style="cursor: pointer;text-align: center;"><img style="cursor: pointer;text-align: center" src="./PNGs/PNG_inFirstPage/close.png" width="100" height="100" class="tip-close"/></div>
+        </div>
+        <div style="float: right;padding-right: 0;padding-bottom: 0;bottom: 0">
+            <img src="https://is3-ssl.mzstatic.com/image/thumb/Features112/v4/cc/56/79/cc567919-2892-8b8b-9fcc-17f3c0c0ebb7/291bef6e-2183-47df-9747-fc54784ad8d5.png/274x593.jpg">
+        </div>
+    </div>
+    <div class="second-title" id="second-title">
+        <p id="second-title-phrase">处理您的Cookies问题</p>
+        <img src="./PNGs/PNG_inFirstPage/arrow-right.png" height="15px" width="15px" style="align-self: center"/>
+    </div>
+    <div class="log-item" id="log-item">
+
+    </div>
+    <div class="main-page-item">
+        <img src="" id="main-page-item1" style="width: 100%;height: 100%;"/>
+
+    </div>
+</body>
+<footer></footer>
+<script>
+    function logo_refresh() {
+        window.location.href = "./MainPage.html";
+    }
+    function production_tip() {
+
+    }
+    function service_tip() {
+
+    }
+    function fd_tip() {
+
+    }
+</script>
+<script>
+    $(document).ready(function () {
+       $("p.adv-wrapper-text:first").click(function () {
+          window.location.href = "./ContainFiles/SelfIntroduction.html"
+       });
+        $("p.adv-wrapper-text#service").click(function () {
+            $("div#tip-production-item").css("display","none");
+            $("div#tip-fd-item").css("display","none");
+            $("div#tip-service-item").css("display","block");
+        });
+        $("p.adv-wrapper-text#production").click(function () {
+            $("div#tip-service-item").css("display","none");
+            $("div#tip-fd-item").css("display","none");
+            $("div#tip-production-item").css("display","block");
+        });
+
+        $("p.adv-wrapper-text#fd").click(function () {
+            $("div#tip-service-item").css("display","none");
+            $("div#tip-production-item").css("display","none");
+            $("div#tip-fd-item").css("display","block");
+        });
+        $("p#ad-close").click(function () {
+            $("div#upper-ad").css("display","none");
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".tip-close").click(function () {
+            $("div#tip-service-item").css("display","none");
+            $("div#tip-production-item").css("display","none");
+            $("div#tip-fd-item").css("display","none");
+        });
+        $("#partners").click(function () {
+            window.location.href = "./ContainFiles/Partners.html";
+        });
+        $("#log").click(function () {
+            $("#log-item").css("display","block");
+        });
+    });
+</script>
+
+</html>
