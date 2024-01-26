@@ -1,158 +1,386 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en-US">
 <head>
-    <title>GBR Official</title>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="./CSSs/basicstyle.css">
-    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js">
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="CSS/header.css" type="text/css" rel="stylesheet"/>
+    <script src="JS/jquery.js" type="text/javascript"></script>
+    <script src="JS/vue1.js" type="text/javascript"></script>
+    <script src="JS/pages-change.js" type="text/javascript"></script>
+    <!--SQL-->
+    <script src="SQL/billnovote.js" type="text/javascript"></script>
+    <script src="SQL/billtovote.js" type="text/javascript"></script>
+    <script src="SQL/billvoted.js" type="text/javascript"></script>
+    <script src="SQL/vipid.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://www.w3schools.cn/cdnjs/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>DCP-民主国家党代表会议委员会</title>
+    <script src="JS/log-report.js" type="text/javascript" />
+</head>
+<script>   <!--非常正式-->
+    var text1 = "党中央办公进步委员会 党中央办公进步委员会 你好 \n" +
+        "这里是由中国B党办公进步委员会监督指导的,在于滨赫主席重要指导下,在全党人士的齐心协助合作下,开发并运行的一个有助于B党办公的非传统程序软件";
+    var text2 = "如果在使用中遇到问题,遗憾的是,目前没有开放向党中央办公进步委员会反馈的通道";
+    console.log(text1);
+    console.log(text2);
+    console.error(text2)
+</script>
+<style>
+    .header-select-logo {
+        order: 1;
+    }
+</style>
+<style>
+    *{
+        padding:0;
+        /*margin:0;*/
+    }
+    *{
+        box-sizing: border-box;
+    }
+    .header-logo{
+        order:2;
+    }
+    .header-other{
+        order:3;
+        width:10px;
+    }
+    #Sidepanel {
+        width:80%;
+        height: 100%;
+        background-color: #0a8585;
+        transform: translateX(-100%) translateY(0) translateZ(0);
+        will-change: transform;
+        transition: transform .45s cubic-bezier(.2,.61,.42,.97);
+        position: fixed;
+        opacity: 0.8;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+    @media (max-width: 719.98px){
+        .sidepanel1 #Sidepanel{
+            transform: translateX(0) translateY(0) translateZ(0);
+        }
+        #Main-container {
+            left:0;
+        }
+        #relation-phrase{
+            display: none;
+        }
+        #Frame-place{
+            width: 100%;
+        }
+        #AD-place,#AD-place1{
+            display: none;
+        }
+    }
+    @media (min-width: 720px){
+        #Sidepanel{
+            width:250px;
+            transform: translateX(0) translateY(0) translateZ(0);
+            opacity: 1.0;
+        }
+        #closebtn{
+            color: #0a8585;
+        }
+    }
+    .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #0492f1;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+    }
+    .openbtn:hover {
+        background-color:#444;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .x{color: azure}
+    .x:hover{
+        cursor: pointer;
+        color: aquamarine;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .sidepanel-list li{
+        list-style: none;
+        font-size: 8px;
+        color: rgba(250,250,250,0.53);
+        padding-top: 12px;
+        padding-left: 2.1%;
+    }
+    .sidepanel-list li div {
+        background-color: azure;
+        opacity: 0.9;
+        height:1.8rem;
+        width:90%;
+        text-align: center;
+        margin-left: 5%;
+        border-radius: 10px;
+    }
+    .sidepanel-list li div :hover{
+        opacity:1.0;
+        text-shadow: 0 0 10px red;
+        cursor: pointer;
+        box-shadow: 0 0 10px whitesmoke;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .sidepanel-list li div span{
+        color: rgba(0, 0, 0, 0.78);
+        padding-top: 50px;
+    }
+</style>
+<script>
+    function openNav(){
+        document.getElementById("only-header").className = "sidepanel1 sidepanel2";
+    }
+    function closeNav(){
+        document.getElementById("only-header").className = "sidepanel2";
+    }
+
+
+</script>
+<body style="margin: 0">
+    <header id="only-header" class="sidepanel2">
+
+        <div id="Sidepanel" class="sidepanel">  <!--隐藏的侧边栏-->
+            <!--侧边顶栏-->
+            <div  style="display: flex;justify-content: space-between;align-items: center">
+                <a style="opacity: 0">×</a>
+                <a style="color: aliceblue;font-size: 24px">工作目录</a>
+                <a id="closebtn" class="closebtn x" style="font-size: 35px;float:right;" onclick="closeNav()">×</a>
+
+            </div>
+            <div>
+                <ul class="sidepanel-list">
+                    <li>主要页与获取新闻</li>
+                    <li>
+                        <div id="a1" onclick="closeNav()">
+                            <span style="text-align: center;margin: 0;padding: 0;">主页面</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="a2" onclick="closeNav()">
+                            <span  style="text-align: center;margin: 0;padding: 0;">政策&活动</span>
+                        </div>
+                    </li>
+                    <li>议政</li>
+                    <li>
+                        <div id="b1" onclick="closeNav()">
+                            <span style="text-align: center;margin: 0;padding: 0;">未表决议案(待处理议案)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="b2" onclick="closeNav()">
+                            <span style="text-align: center;margin: 0;padding: 0;">议案表决结果及通过结果公示</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="b3" onclick="closeNav()">
+                            <span style="text-align: center;margin: 0;padding: 0;">未开始表决议案审议公示</span>
+                        </div>
+                    </li>
+                    <li>参政</li>
+                    <li>
+                        <div id="c1" onclick="closeNav()">
+                            <span style="text-align: center;margin: 0;padding: 0;">议案提交</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="c2" onclick="closeNav()">
+                            <span style="text-align: center;margin: 0;padding: 0;">向中央(主席)提意见</span>
+                        </div>
+                    </li>
+                    <li>个人</li>
+                    <li>
+                        <div id="d1" onclick="closeNav()">
+                            <span style="text-align: center;margin: 0;padding: 0;">廉洁足迹</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="d2" onclick="closeNav()">
+                            <span style="text-align: center;margin: 0;padding: 0;">党内个人事务</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--<div>
+                <p id="relation-phrase" style="text-align: center;font-size: 20px;padding-top: 2px;margin-top: 0px">工作目录</p>
+            </div>-->
+        </div>
+
+
+        <div class="header-select-logo" >
+            <button class="openbtn" onclick="openNav()">☰</button>
+        </div>
+
+
+        <div class="header-logo">
+            <p style="font-size: small;color: aliceblue">DCP民主國家黨/民主国家党 办公进步委员会</p>
+        </div>
+
+
+        <div class="header-other" style="">
+
+        </div>
+
+    </header>
     <style>
-        div.second-title{
+        .frame-place{
+            order:2;
+            background-color: white;
+            width: 47%;
+            max-width: 1200px;
+            height: 100%;
+        }
+        .main-container{
             display: flex;
-            justify-content: center;
-            cursor: pointer;
-            left: 0;
-            right: 0;
-            position: absolute;
-        }
-        p#second-title-phrase{
-            text-align: center;
-            color: white;
-            transition: font-size 300ms linear;
-        }
-        p#second-title-phrase:hover{
-            font-size: 17px;
         }
     </style>
     <script>
-
+        $("document").ready(function () {
+            $("#a1").click(function () {
+                $("#FrameA2,#FrameB1,#FrameB2,#FrameB3,#FrameC1,#FrameC2,#FrameD1,.frameD2").hide(500);
+                $(".frameA1").show(500);
+            });
+            $("#a2").click(function () {
+                $("#FrameA1,#FrameB1,#FrameB2,#FrameB3,#FrameC1,#FrameC2,#FrameD1,#FrameD2").hide(500);
+                $("#FrameA2").show(500);
+            });
+            $("#b1").click(function () {
+                $(".frameA1,.frameA2,.frameB2,.frameB3,.frameC1,.frameC2,.frameD1,.frameD2").hide();
+                $(".frameB1").show();
+            });
+            $("#b2").click(function () {
+                $(".frameA1,.frameB1,.frameA2,.frameB3,.frameC1,.frameC2,.frameD1,.frameD2").hide();
+                $(".frameB2").show();
+            });
+            $("#b3").click(function () {
+                $(".frameA1,.frameB1,.frameB2,.frameA2,.frameC1,.frameC2,.frameD1,.frameD2").hide();
+                $(".frameB3").show();
+            });
+            $("#c1").click(function () {
+                $(".frameA2,.frameB1,.frameB2,.frameB3,.frameA1,.frameC2,.frameD1,.frameD2").hide(500);
+                $(".frameC1").show(500);
+            });
+            $("#c2").click(function () {
+                $("#FrameA2,.frameB1,.frameB2,.frameB3,.frameC1,.frameA1,.frameD1,.frameD2").hide(500);
+                $(".frameC2").show(500);
+            });
+            $("#d1").click(function () {
+                $(".frameA2,.frameB1,.frameB2,.frameB3,.frameC1,.frameC2,.frameA1,.frameD2").hide();
+                $(".frameD1").show();
+            });
+            $("#d2").click(function () {
+                $(".frameA2,.frameB1,.frameB2,.frameB3,.frameC1,.frameC2,.frameD1,.frameA1").hide(500);
+                $(".frameD2").show(500);
+            });
+        });
     </script>
-</head>
-<body>
-    <!--upper ad-->
-    <div id="upper-ad">
-        <div style="height: 480px">
-            <img src="./PNGs/logo.png" height="380px" width="380px"/>
-            <p style="color: white;font-size: 30px;text-align: center">We Served Good Service!</p>
-        </div>
-        <div style="height: 20px;width:auto;border: 1px solid cornflowerblue">
-            <p style="color: white;font-size: 12px;text-align: center" id="ad-close"> [X Close]</p>
-        </div>
-    </div>
-    <!--title bar-->
-    <div id="title-bar" style="display: flex;list-style-type: none;justify-content: space-between;alignment: center;flex-flow: row nowrap;flex-direction: row" class="adv-wrapper">
-        <img src="PNGs/logo.png" onclick="logo_refresh()" style="cursor: pointer;order: 0;width: 45px; height: 45px;padding-left: 10px" />
-        <p class="adv-wrapper-text" style="order: 1;cursor: help!important;margin-left: 25%">LWR</p>
-        <p class="adv-wrapper-text" id="service" style="order: 2" onclick="service_tip()">Service</p>
-        <p class="adv-wrapper-text" id="production" style="order: 3" onclick="production_tip()">production</p>
-        <p class="adv-wrapper-text" id="partners" style="order: 4">partners</p>
-        <p class="adv-wrapper-text" id="fd" style="order: 5;margin-right: 25%" onclick="fd_tip()">For Developer</p>
-        <p class="adv-wrapper-text" style="padding-right: 18px;align-self: flex-end;font-size: 7px;list-style-type: none;order: 6" id="log">&lt;登录?注册!&gt;</p>
-    </div>
-    <div id="tip-service-item" class="tip-item">
-        <p style="font-size: larger" class="adv-wrapper-text">No Service</p>
-    </div>
-    <div id="tip-production-item" class="tip-item">
+    <style>
+        .frameA1{
+            display: block;background-color: #0492f1;
+        }
+        .frameA2,.frameB1,.frameB2,.frameB3,.frameC1,.frameC2,.frameD1,.frameD2{
+            display: none;/*background-color:chocolate;*/
+        }
+        .frameA1,.frameA2,.frameB1,.frameB2,.frameB3,.frameC1,.frameC2,.frameD1,.frameD2{
+            width: 100%;
 
-    </div>
-    <div id="tip-fd-item" class="tip-item">
-        <p class="adv-wrapper-text" style="text-align: center;font-size: 50px;color: white!important;">Dear developers!</p>
-        <div style="float: left;padding-left: 0;padding-bottom: 0;bottom: 0">
-            <img src="https://developer.android.google.cn/static/images/cluster-illustrations/samples.svg" width="290px" /><br/>
-            <img src="https://developer.android.google.cn/static/images/cluster-illustrations/developer-guidance.svg" width="290px"/>
-        </div>
-        <div style="position: absolute;padding-left: 300px;">
-            <p style="font-weight: lighter;text-align: left;font-size: 30px;color: #f5f5f7">Many supplies are provided here.<br/>Start ur coding life from here!</p>
-            <div style="width: 860px;height: 80%;display: flex;flex-direction: row;justify-content: space-between">
-                <div style="width:250px;height: 350px;order: 0;border-radius: 10px;background-color: rgb(7,48,66)">
-                    <img src="https://developer.android.google.cn/static/images/spot-icons/tools-update.svg" width="100px" height="100px">
-                    <p class="adv-wrapper-text" style="font-size: large">Participate to IT EDU Plan</p>
-                    <p style="font-size: 20px">Great Community with people who're professional.</p>
+            height: 100%;
+        }
+        .tip{
+            background-color: #f8f8f9; height: auto;margin-left: 5px;margin-right: 5px;border-radius: 10px;
+            border-color: #f8f8f9;
+            border-style: solid;
+            border-width: 1px;
+            margin-top: 5px;
+        }
+        .tip:hover{
+            cursor:pointer;
+            background-color: rgb(217, 217, 220);
+            border-color: #0492f1;
+            transition: color .35s ease-in-out,background-color .35s ease-in-out,border-color .35s ease-in-out,box-shadow .35s ease-in-out;
+        }
+    </style>
+
+    <div id="Main-container" class="main-container">  <!--主区域-->
+        <div id="AD-place" class="frame-place" style="order:1;width: 20%;background-color: #eef1f7"></div>
+        <div id="Frame-place" class="frame-place">
+            <div id="FrameA1" class="frameA1" style="overflow: scroll">  <!--首页-->
+
+            </div>
+            <div id="FrameA2" class="frameA2" style="overflow: scroll">  <!--政策活动-->
+
+            </div>
+            <div id="FrameB1" class="frameB1" style="overflow: scroll">  <!--表决-->
+                <div class="tip" style="margin-top: 3.50rem;">  <!--3.25-->
+                    <a style="padding-left: 2px;font-style: italic;font-size: 14px" >我是议员,如何投票?</a>
+                    <div style="padding-right: 15%;opacity: 1.0;height: auto;width: auto">
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);">在这里您可以选择您未进行表决的议案进行投票,通过单击议案内容可进入投票程序.2024年以来,B党全党在于滨赫主席的带领下,致力于维护党内民主现状
+                            党中央直辖工作进步委员会跟随主席指示,为便捷党中央高级代表以及党支部代表行使民主投票及议案表决的民主权利,监制了"网上B党-表决区域",
+                            切实保障了党代表们的民主权利</a>
+                    </div>
                 </div>
-                <div style="order: 1;width:250px;height: 350px;border-radius: 10px;background-color: rgb(7,48,66)">
-                    <img src="https://developer.android.google.cn/static/images/cluster-illustrations/quality-guidelines.svg" width="100px" height="100px">
-                    <p class="adv-wrapper-text" style="font-size: large">Q&A</p>
-                    <p style="font-size: 20px">questions&answers</p>
+                <div class="tip" style="margin-top: 0.4rem;">  <!--3.25-->
+                    <a style="padding-left: 2px;font-style: italic;font-size: 14px" >投票前应该注意</a>
+                    <div style="padding-right: 15%;opacity: 1.0;height: auto;width: auto">
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);">在投票前,您应该仔细阅读</a>
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);" href="https://google.com">中国B党党代表表决章程(2023年11月版)</a>
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);">,</a>
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);" href="https://google.com">中国B党民主化公约(2023年版)</a>
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);">.并同意以上条款.</a>
+                    </div>
                 </div>
-                <div style="order: 2;width:250px;height: 350px;border-radius: 10px;background-color: rgb(7,48,66)">
-                    <img src="https://developer.android.google.cn/static/images/picto-icons/lightbulb.svg" width="100px" height="100px">
-                    <p class="adv-wrapper-text" style="font-size: large">Some ideas</p>
-                    <p style="font-size: 20px">No ideas? Come HERE!</p>
+                <div class="tip" style="margin-top: 0.4rem;">  <!--3.25-->
+                    <a style="padding-left: 2px;font-style: italic;font-size: 14px" >超过投票期限怎么办</a>
+                    <div style="padding-right: 15%;opacity: 1.0;height: auto;width: auto">
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);">超过投票期限但党主席办公室未进行表决前,根据</a>
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);" href="https://google.com">中国B党民主化公约(2023年版)</a>
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);">.可以在15个工作时内进行补投.</a><br>
+                        <a style="font-size: 8px;color: rgba(0,0,0,0.6);">单击此处可以进行补投.</a>
+                    </div>
+                </div>
+                <div style="width: 90%;text-align: center;margin-left: 5%;height:300px;background-color: #d7d7de;margin-top: 10px;border-radius: 2px">
+                    <a id="bill-amount" style="padding-top: 3px;text-align: center;font-size: 24px;">无法获取议案数</a>
+
+                </div>
+                <div class="tip" style="margin-top: 0.4rem;height: 400px">  <!--3.25-->
+                    <a style="padding-top: 3px;text-align: center;font-size: 14px;">2024年1月份第0001号行政动议 议案</a><br>
+                    <a id="bill-1-name" style="font-size: 22px">无法获取议案名称</a>
+
+
                 </div>
             </div>
-            <div class="tip-close" style="cursor: pointer;text-align: center;"><img style="cursor: pointer;text-align: center" src="./PNGs/PNG_inFirstPage/close.png" width="100" height="100" class="tip-close"/></div>
-        </div>
-        <div style="float: right;padding-right: 0;padding-bottom: 0;bottom: 0">
-            <img src="https://is3-ssl.mzstatic.com/image/thumb/Features112/v4/cc/56/79/cc567919-2892-8b8b-9fcc-17f3c0c0ebb7/291bef6e-2183-47df-9747-fc54784ad8d5.png/274x593.jpg">
-        </div>
-    </div>
-    <div class="second-title" id="second-title">
-        <p id="second-title-phrase">处理您的Cookies问题</p>
-        <img src="./PNGs/PNG_inFirstPage/arrow-right.png" height="15px" width="15px" style="align-self: center"/>
-    </div>
-    <div class="log-item" id="log-item">
+            <script>
+                if(amount === 0){
+                    document.getElementById("bill-amount").innerText = `当前没有议案正在表决`;
+                }else{
+                    document.getElementById("bill-amount").innerText = `当前有`+amount+`个议案正在表决`;
+                }
 
-    </div>
-    <div class="main-page-item">
-        <img src="" id="main-page-item1" style="width: 100%;height: 100%;"/>
+            </script>
+            <div id="FrameB2" class="frameB2" style="overflow: scroll">  <!--表决结果-->
 
+            </div>
+            <div id="FrameB3" class="frameB3" style="overflow: scroll">  <!--公示-->
+
+            </div>
+            <div id="FrameC1" class="frameC1" style="overflow: scroll">  <!--提交议案-->
+
+            </div>
+            <div id="FrameC2" class="frameC2" style="overflow: scroll">  <!--举报 建议-->
+
+            </div>
+            <div id="FrameD1" class="frameD1" style="overflow: scroll">  <!--廉洁-->
+
+            </div>
+            <div id="FrameD2" class="frameD2" style="overflow: scroll">  <!--个人事务工作-->
+
+            </div>
+        </div>
+        <div id="AD-place1" class="frame-place" style="order: 3;width: 20%;background-color: #eef1f7"></div>
     </div>
 </body>
-<footer></footer>
-<script>
-    function logo_refresh() {
-        window.location.href = "./MainPage.html";
-    }
-    function production_tip() {
-
-    }
-    function service_tip() {
-
-    }
-    function fd_tip() {
-
-    }
-</script>
-<script>
-    $(document).ready(function () {
-       $("p.adv-wrapper-text:first").click(function () {
-          window.location.href = "./ContainFiles/SelfIntroduction.html"
-       });
-        $("p.adv-wrapper-text#service").click(function () {
-            $("div#tip-production-item").css("display","none");
-            $("div#tip-fd-item").css("display","none");
-            $("div#tip-service-item").css("display","block");
-        });
-        $("p.adv-wrapper-text#production").click(function () {
-            $("div#tip-service-item").css("display","none");
-            $("div#tip-fd-item").css("display","none");
-            $("div#tip-production-item").css("display","block");
-        });
-
-        $("p.adv-wrapper-text#fd").click(function () {
-            $("div#tip-service-item").css("display","none");
-            $("div#tip-production-item").css("display","none");
-            $("div#tip-fd-item").css("display","block");
-        });
-        $("p#ad-close").click(function () {
-            $("div#upper-ad").css("display","none");
-        });
-    });
-</script>
-<script>
-    $(document).ready(function () {
-        $(".tip-close").click(function () {
-            $("div#tip-service-item").css("display","none");
-            $("div#tip-production-item").css("display","none");
-            $("div#tip-fd-item").css("display","none");
-        });
-        $("#partners").click(function () {
-            window.location.href = "./ContainFiles/Partners.html";
-        });
-        $("#log").click(function () {
-            $("#log-item").css("display","block");
-        });
-    });
-</script>
-
 </html>
